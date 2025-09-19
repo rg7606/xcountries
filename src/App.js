@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./index.css";
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -34,30 +35,9 @@ function App() {
       </h1>
       <div className="grid">
         {countries.map((country) => (
-          <div
-            key={country.name}
-            style={{
-              border: "1px solid #ddd",
-              borderRadius: "10px",
-              boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
-              padding: "10px",
-              textAlign: "center",
-              transition: "transform 0.2s",
-            }}
-            onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-            onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
-          >
-            <img
-              src={country.flag}
-              alt={`Flag of ${country.name}`}
-              style={{
-                width: "80px",
-                height: "50px",
-                objectFit: "contain",
-                marginBottom: "10px",
-              }}
-            />
-            <p style={{ fontWeight: "500" }}>{country.name}</p>
+          <div className="card" key={country.name}>
+            <img src={country.flag} alt={`Flag of ${country.name}`} />
+            <p>{country.name}</p>
           </div>
         ))}
       </div>
